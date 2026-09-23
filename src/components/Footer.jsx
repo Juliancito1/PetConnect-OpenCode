@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { Link } from 'react-router'
+import Logo from './Logo.jsx'
 
 const explorerLinks = [
   { label: 'Adoptar', to: '/adoptar' },
@@ -48,24 +50,9 @@ function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-4">
           <div className="space-y-4">
-            <span className="flex items-center gap-2">
-              <svg viewBox="0 0 24 24" fill="url(#pawGradientFooter)" className="h-9 w-9" aria-hidden="true">
-                <defs>
-                  <linearGradient id="pawGradientFooter" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stopColor="#34d399" />
-                    <stop offset="100%" stopColor="#fbbf24" />
-                  </linearGradient>
-                </defs>
-                <ellipse cx="17.2" cy="6.2" rx="1.6" ry="2" />
-                <ellipse cx="13.7" cy="3.6" rx="1.1" ry="1.9" />
-                <ellipse cx="9.5" cy="4.4" rx="1.2" ry="1.8" transform="rotate(-18 9.5 4.4)" />
-                <ellipse cx="6.4" cy="7.4" rx="1.5" ry="2" />
-                <path d="M12 8.5c-3 0-6 2.6-6 5.6 0 2.1 1.6 3.9 3.2 3.9.9 0 1.5-.5 2-.5s1.1.5 2 .5 1.5.5 2 .5c1.6 0 3.2-1.8 3.2-3.9 0-3-3-5.6-6-5.6z" />
-              </svg>
-              <span className="text-2xl font-extrabold tracking-tight text-white">
-                Pet<span className="text-emerald-400">Connect</span>
-              </span>
-            </span>
+            <Link to="/" aria-label="PetConnect - Inicio">
+              <Logo light />
+            </Link>
             <p className="text-sm leading-relaxed text-slate-400">
               Conectamos mascotas sin hogar con familias que buscan un compañero fiel.
               Adopción responsable todo el año.
@@ -91,9 +78,9 @@ function Footer() {
             <ul className="mt-4 space-y-3">
               {explorerLinks.map((link) => (
                 <li key={link.to}>
-                  <a href={link.to} className="text-sm text-slate-400 transition-colors duration-300 hover:text-emerald-400">
+                  <Link to={link.to} className="text-sm text-slate-400 transition-colors duration-300 hover:text-emerald-400">
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -1,39 +1,6 @@
 import { Link } from 'react-router'
-
-const pets = [
-  {
-    id: 1,
-    name: 'Luna',
-    age: '2 años',
-    location: 'Buenos Aires, AR',
-    img: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=80',
-    alt: 'Gato llamado Luna',
-  },
-  {
-    id: 2,
-    name: 'Max',
-    age: '1 año',
-    location: 'Córdoba, AR',
-    img: 'https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=600&q=80',
-    alt: 'Perro llamado Max',
-  },
-  {
-    id: 3,
-    name: 'Milo',
-    age: '3 años',
-    location: 'Rosario, AR',
-    img: 'https://images.unsplash.com/photo-1529778873920-4da4926a72c2?auto=format&fit=crop&w=600&q=80',
-    alt: 'Gato llamado Milo',
-  },
-  {
-    id: 4,
-    name: 'Nala',
-    age: '6 meses',
-    location: 'Mendoza, AR',
-    img: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=600&q=80',
-    alt: 'Perro llamado Nala',
-  },
-]
+import PetCard from '../components/PetCard.jsx'
+import { pets } from '../data/pets.js'
 
 const stats = [
   { value: '1200+', label: 'Mascotas registradas' },
@@ -120,48 +87,7 @@ function PetsSection() {
 
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {pets.map((pet) => (
-          <article
-            key={pet.id}
-            className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-          >
-            <div className="relative h-48 overflow-hidden">
-              <img
-                src={pet.img}
-                alt={pet.alt}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <span className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-emerald-700 shadow-sm backdrop-blur">
-                En adopción
-              </span>
-            </div>
-
-            <div className="flex flex-1 flex-col gap-3 p-5">
-              <h3 className="text-lg font-bold text-slate-800">{pet.name}</h3>
-              <ul className="space-y-1.5 text-sm text-slate-600">
-                <li className="flex items-center gap-2">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="h-4 w-4 text-indigo-600" aria-hidden="true">
-                    <rect x="3" y="4" width="18" height="18" rx="2" />
-                    <path d="M16 2v4M8 2v4M3 10h18" />
-                  </svg>
-                  {pet.age}
-                </li>
-                <li className="flex items-center gap-2">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 text-indigo-600" aria-hidden="true">
-                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                  {pet.location}
-                </li>
-              </ul>
-              <button
-                type="button"
-                className="mt-auto w-full rounded-full bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors duration-300 hover:bg-emerald-700"
-              >
-                Ver detalles
-              </button>
-            </div>
-          </article>
+          <PetCard key={pet.id} pet={pet} />
         ))}
       </div>
     </section>
