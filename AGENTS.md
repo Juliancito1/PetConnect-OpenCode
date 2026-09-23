@@ -19,4 +19,4 @@
 - React Compiler habilitado (babel + `reactCompilerPreset` en `vite.config.js`): no agregar `useMemo`/`useCallback` manuales.
 - ESLint: `react-refresh` (vite) + `react-hooks`: un archivo que exporta un componente no puede exportar otra cosa (rompe HMR).
 - Iconos: sprite `public/icons.svg` vía `<use href="/icons.svg#...">`.
-- El repo aún no está bajo git (no hay `.git`).
+- Commits en español siguiendo el estilo del repo (ej: "Se agrego..."). Rama por defecto: `dev`. Push a `origin`.
