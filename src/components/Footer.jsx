@@ -1,0 +1,162 @@
+import { useState } from 'react'
+
+const explorerLinks = [
+  { label: 'Adoptar', to: '/adoptar' },
+  { label: 'Dar en Adopción', to: '/dar-en-adopcion' },
+  { label: 'Sobre Nosotros', to: '/sobre-nosotros' },
+  { label: 'Contáctanos', to: '/contacto' },
+]
+
+const legalLinks = ['Términos y Condiciones', 'Política de Privacidad', 'Política de Cookies']
+
+const socialLinks = [
+  {
+    name: 'X',
+    href: '#',
+    path: 'M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z',
+  },
+  {
+    name: 'Instagram',
+    href: '#',
+    path: 'M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z',
+  },
+  {
+    name: 'Facebook',
+    href: '#',
+    path: 'M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z',
+  },
+  {
+    name: 'GitHub',
+    href: '#',
+    path: 'M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12',
+  },
+]
+
+function Footer() {
+  const [email, setEmail] = useState('')
+  const [subscribed, setSubscribed] = useState(false)
+
+  const handleSubscribe = (event) => {
+    event.preventDefault()
+    if (!email.trim()) return
+    setSubscribed(true)
+    setEmail('')
+  }
+
+  return (
+    <footer className="bg-slate-900 text-slate-300">
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-4">
+          <div className="space-y-4">
+            <span className="flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="url(#pawGradientFooter)" className="h-9 w-9" aria-hidden="true">
+                <defs>
+                  <linearGradient id="pawGradientFooter" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#34d399" />
+                    <stop offset="100%" stopColor="#fbbf24" />
+                  </linearGradient>
+                </defs>
+                <ellipse cx="17.2" cy="6.2" rx="1.6" ry="2" />
+                <ellipse cx="13.7" cy="3.6" rx="1.1" ry="1.9" />
+                <ellipse cx="9.5" cy="4.4" rx="1.2" ry="1.8" transform="rotate(-18 9.5 4.4)" />
+                <ellipse cx="6.4" cy="7.4" rx="1.5" ry="2" />
+                <path d="M12 8.5c-3 0-6 2.6-6 5.6 0 2.1 1.6 3.9 3.2 3.9.9 0 1.5-.5 2-.5s1.1.5 2 .5 1.5.5 2 .5c1.6 0 3.2-1.8 3.2-3.9 0-3-3-5.6-6-5.6z" />
+              </svg>
+              <span className="text-2xl font-extrabold tracking-tight text-white">
+                Pet<span className="text-emerald-400">Connect</span>
+              </span>
+            </span>
+            <p className="text-sm leading-relaxed text-slate-400">
+              Conectamos mascotas sin hogar con familias que buscan un compañero fiel.
+              Adopción responsable todo el año.
+            </p>
+            <div className="flex gap-3">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  aria-label={social.name}
+                  className="rounded-full bg-slate-800 p-2.5 text-slate-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-600 hover:text-white"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">
+                    <path d={social.path} />
+                  </svg>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-bold uppercase tracking-wider text-white">Explorar</h3>
+            <ul className="mt-4 space-y-3">
+              {explorerLinks.map((link) => (
+                <li key={link.to}>
+                  <a href={link.to} className="text-sm text-slate-400 transition-colors duration-300 hover:text-emerald-400">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-bold uppercase tracking-wider text-white">Legal</h3>
+            <ul className="mt-4 space-y-3">
+              {legalLinks.map((link) => (
+                <li key={link}>
+                  <a href="#" className="text-sm text-slate-400 transition-colors duration-300 hover:text-emerald-400">
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-bold uppercase tracking-wider text-white">Boletín</h3>
+            <p className="mt-4 text-sm text-slate-400">
+              Recibí las últimas mascotas en adopción y novedades de PetConnect.
+            </p>
+            {subscribed ? (
+              <div className="mt-4 flex items-center gap-2 rounded-xl bg-emerald-500/10 px-4 py-3 text-sm font-semibold text-emerald-400">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5" aria-hidden="true">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+                ¡Suscripción exitosa!
+              </div>
+            ) : (
+              <form onSubmit={handleSubscribe} className="mt-4 flex flex-col gap-3 sm:flex-row">
+                <label htmlFor="newsletter-email" className="sr-only">
+                  Tu correo electrónico
+                </label>
+                <input
+                  id="newsletter-email"
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                  placeholder="tu@email.com"
+                  className="w-full flex-1 rounded-full bg-slate-800 px-4 py-2.5 text-sm text-white placeholder:text-slate-500 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                />
+                <button
+                  type="submit"
+                  className="rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-500 active:translate-y-0"
+                >
+                  Suscribirme
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div className="border-t border-slate-800">
+        <p className="mx-auto max-w-7xl px-4 py-6 text-center text-sm text-slate-500 sm:px-6 lg:px-8">
+          © {new Date().getFullYear()} PetConnect. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+  )
+}
+
+export default Footer
